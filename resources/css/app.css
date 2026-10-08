@@ -1,0 +1,198 @@
+@import 'tailwindcss';
+
+@import 'tw-animate-css';
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+    --font-sans:
+        'Instrument Sans', ui-sans-serif, system-ui, sans-serif,
+        'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+        'Noto Color Emoji';
+
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+
+    --color-destructive: var(--destructive);
+    --color-destructive-foreground: var(--destructive-foreground);
+
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+
+    --color-signal: var(--signal);
+    --color-signal-foreground: var(--signal-foreground);
+
+    --color-status-available: var(--status-available);
+    --color-status-rented: var(--status-rented);
+    --color-status-inspection: var(--status-inspection);
+    --color-status-overdue: var(--status-overdue);
+
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/*
+ | Van Dijk Verhuur huisstijl
+ | Pas tokens hieronder aan. Documentatie: .cursor/rules/van-dijk-huisstijl.mdc
+ */
+:root {
+    /* Ondergrond: koel werkplaatsgrijs, geen warm crème */
+    --background: oklch(0.97 0.008 240);
+    --foreground: oklch(0.24 0.025 245);
+
+    --card: oklch(0.995 0.004 240);
+    --card-foreground: oklch(0.24 0.025 245);
+
+    --popover: oklch(0.995 0.004 240);
+    --popover-foreground: oklch(0.24 0.025 245);
+
+    /* Primary = staalblauw (knoppen, actieve nav, logo) */
+    --primary: oklch(0.36 0.06 245);
+    --primary-foreground: oklch(0.98 0.01 240);
+
+    --secondary: oklch(0.93 0.015 240);
+    --secondary-foreground: oklch(0.3 0.04 245);
+
+    --muted: oklch(0.94 0.01 240);
+    --muted-foreground: oklch(0.5 0.03 245);
+
+    /* Accent = zachte staaltint voor hover/selected surfaces */
+    --accent: oklch(0.92 0.02 245);
+    --accent-foreground: oklch(0.3 0.04 245);
+
+    /* Destructive / te laat */
+    --destructive: oklch(0.52 0.2 28);
+    --destructive-foreground: oklch(0.52 0.2 28);
+
+    --border: oklch(0.88 0.015 240);
+    --input: oklch(0.88 0.015 240);
+    --ring: oklch(0.55 0.08 245);
+
+    /* Signal = werflehre amber (prijs, nadruk, highlights) */
+    --signal: oklch(0.74 0.14 70);
+    --signal-foreground: oklch(0.28 0.05 60);
+
+    /* Statuskleuren planning */
+    --status-available: oklch(0.55 0.1 155);
+    --status-rented: oklch(0.45 0.07 245);
+    --status-inspection: oklch(0.7 0.13 75);
+    --status-overdue: oklch(0.52 0.2 28);
+
+    --chart-1: oklch(0.36 0.06 245);
+    --chart-2: oklch(0.74 0.14 70);
+    --chart-3: oklch(0.55 0.1 155);
+    --chart-4: oklch(0.5 0.03 245);
+    --chart-5: oklch(0.52 0.2 28);
+
+    --radius: 0.5rem;
+
+    --sidebar: oklch(0.28 0.04 245);
+    --sidebar-foreground: oklch(0.94 0.01 240);
+    --sidebar-primary: oklch(0.74 0.14 70);
+    --sidebar-primary-foreground: oklch(0.22 0.04 60);
+    --sidebar-accent: oklch(0.34 0.045 245);
+    --sidebar-accent-foreground: oklch(0.96 0.01 240);
+    --sidebar-border: oklch(0.38 0.04 245);
+    --sidebar-ring: oklch(0.74 0.14 70);
+}
+
+.dark {
+    --background: oklch(0.2 0.025 245);
+    --foreground: oklch(0.95 0.01 240);
+
+    --card: oklch(0.24 0.03 245);
+    --card-foreground: oklch(0.95 0.01 240);
+
+    --popover: oklch(0.24 0.03 245);
+    --popover-foreground: oklch(0.95 0.01 240);
+
+    --primary: oklch(0.74 0.14 70);
+    --primary-foreground: oklch(0.22 0.04 60);
+
+    --secondary: oklch(0.3 0.035 245);
+    --secondary-foreground: oklch(0.95 0.01 240);
+
+    --muted: oklch(0.3 0.035 245);
+    --muted-foreground: oklch(0.72 0.02 240);
+
+    --accent: oklch(0.32 0.04 245);
+    --accent-foreground: oklch(0.95 0.01 240);
+
+    --destructive: oklch(0.6 0.18 28);
+    --destructive-foreground: oklch(0.75 0.15 28);
+
+    --border: oklch(0.34 0.035 245);
+    --input: oklch(0.34 0.035 245);
+    --ring: oklch(0.74 0.14 70);
+
+    --signal: oklch(0.78 0.13 70);
+    --signal-foreground: oklch(0.22 0.04 60);
+
+    --status-available: oklch(0.7 0.12 155);
+    --status-rented: oklch(0.7 0.08 245);
+    --status-inspection: oklch(0.78 0.13 70);
+    --status-overdue: oklch(0.68 0.17 28);
+
+    --chart-1: oklch(0.7 0.08 245);
+    --chart-2: oklch(0.78 0.13 70);
+    --chart-3: oklch(0.7 0.12 155);
+    --chart-4: oklch(0.72 0.02 240);
+    --chart-5: oklch(0.68 0.17 28);
+
+    --sidebar: oklch(0.17 0.03 245);
+    --sidebar-foreground: oklch(0.94 0.01 240);
+    --sidebar-primary: oklch(0.74 0.14 70);
+    --sidebar-primary-foreground: oklch(0.22 0.04 60);
+    --sidebar-accent: oklch(0.24 0.035 245);
+    --sidebar-accent-foreground: oklch(0.95 0.01 240);
+    --sidebar-border: oklch(0.28 0.03 245);
+    --sidebar-ring: oklch(0.74 0.14 70);
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+    }
+}
